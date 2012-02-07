@@ -40,8 +40,17 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := p4vzw
-PRODUCT_DEVICE := p4vzw
-PRODUCT_MODEL := p4vzw
+
+PRODUCT_NAME := aokp_p4vzw
 PRODUCT_BRAND := samsung
+PRODUCT_DEVICE := p4vzw
+PRODUCT_MODEL := SCH-I905
 PRODUCT_MANUFACTURER := samsung
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=SCH-I905 BUILD_ID=HMJ37 BUILD_FINGERPRINT=samsung/SCH-I905/SCH-I905:3.1/HMJ37/EH04:user/release-keys PRIVATE_BUILD_DESC="SCH-I905-user 3.1 HMJ37 EH04 release-keys"
+
+# Inherit common build.prop overrides
+-include vendor/aokp/products/common_versions.mk
+
+# Copy maguro specific prebuilt files
+PRODUCT_COPY_FILES +=  \
+    vendor/aokp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
